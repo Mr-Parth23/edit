@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meri Pyaari GF Ke Liye</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background: linear-gradient(135deg, #ff66cc, #66ccff);
+            overflow-y: auto;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            color: #ffffff;
+            animation: fadeIn 2s ease-in-out;
+            text-shadow: 0 0 10px rgba(255, 102, 204, 0.7), 0 0 20px rgba(102, 204, 255, 0.5);
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff99cc;
+            text-shadow: 0 0 15px #ff66cc, 0 0 25px #66ccff;
+        }
+        p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #e6e6fa;
+        }
+        h3 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff66cc;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .yes-btn {
+            background-color: #ff66cc;
+            color: #ffffff;
+            box-shadow: 0 0 10px #ff66cc, 0 0 20px #66ccff;
+        }
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #ff66cc, 0 0 30px #66ccff;
+        }
+        .no-btn {
+            background-color: #66ccff;
+            color: #ffffff;
+            position: relative;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 10px #66ccff;
+        }
+        .celebration {
+            display: none;
+            font-size: 4rem;
+            color: #ff66cc;
+            text-shadow: 0 0 15px #ff66cc, 0 0 25px #66ccff;
+            animation: pop 1s ease-in-out;
+            margin: 20px 0;
+        }
+        .video-container {
+            display: none;
+            margin-top: 20px;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            max-height: 70vh;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #ff66cc, 0 0 25px #66ccff;
+            object-fit: contain;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes pop {
+            0% { transform: scale(0.5); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            .btn {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+            .celebration {
+                font-size: 2.5rem;
+            }
+            video {
+                max-width: 100%;
+                max-height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>I am really sorry, My Baby :( </h1>
+        <p>Mai beemar zarur tha lekin mere nakhre hi bohot the aapse door raha, lekin mera yeh iraada nahi tha ji, aur aaj kal dono din aapse milne bhi nahi aaya majboori thi ji, mujhe doctor ke siwa ghar ke bahar jaane nahi diya kal aaj toh mai nahi aa paata 4 din se naatak chalu hai mere, Aapka sar dard ho ya aap utna beemar nahi padte, aaj tak aane mujeh bas 2 baar bataya hai ki aap beemar the aap seh lete ho lekin mai bacchon ke tarah had se bahar le gaya sab kuch, Aur fir aaj game me bhi late hua bina bataye 10 min afk, fir vapas afk, game me bhi bohot ghatiya khela mai, Bohot bura kiya maine please mujhe maaf kardo meri jaan.</p>
+        <h3>Do you forgive me?</h3>
+        <div class="buttons">
+            <button class="btn yes-btn" onclick="celebrate()">Yes</button>
+            <button class="btn no-btn" id="no-btn">No</button>
+        </div>
+        <div class="celebration" id="celebration">Yayyy! I love you! ❤️</div>
+        <div class="video-container" id="video-container">
+            <video controls>
+                <source src="edit1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        const noBtn = document.getElementById('no-btn');
+        noBtn.addEventListener('mouseover', () => {
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+        });
+
+        function celebrate() {
+            const celebration = document.getElementById('celebration');
+            const videoContainer = document.getElementById('video-container');
+            celebration.style.display = 'block';
+            videoContainer.style.display = 'block';
+            document.querySelector('.buttons').style.display = 'none';
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                colors: ['#ff66cc', '#66ccff', '#ffffff'],
+                origin: { y: 0.6 }
+            });
+        }
+    </script>
+</body>
+</html>
